@@ -1,6 +1,21 @@
 {% extends 'master.html' %}
-{% load static %}
+{% load static  %}
 
-   {% block content %}
-          {% include 'utilities/products.html' %}
-   {% endblock %}
+{% block content %}
+<div class="container text-center">
+       <div class="row">
+         {% for prod in products %}     
+         <div class="col">
+           <div class="card" style="width: 18rem;">
+             <img src="{{prod.image.url}}" class="card-img-top" alt="...">
+             <div class="card-body">
+               <h5 class="card-title">{{prod.name}}({prod.price})</h5>
+               <p class="card-text">{{prod.description}}</p>
+               <a href="#" class="btn btn-primary">Add to cart</a>
+             </div>
+           </div>
+         </div>
+         {% endfor %}
+       </div>
+</div>
+{% endblock %}
